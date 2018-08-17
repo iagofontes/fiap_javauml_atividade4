@@ -1,0 +1,20 @@
+package Exercicio3;
+
+public enum Cores {
+	
+	private Integer codigo;
+	private String nome;
+	
+	public Cores(Integer codCor, String nomeCor) {
+		this.codigo = codCor;
+		this.nome = nomeCor;
+	}
+	
+	public String recuperaNomeCor() {
+		return this.nome;
+	}
+	public Integer recuperaCodigoCor() {
+		return this.codigo;
+	}
+	
+}

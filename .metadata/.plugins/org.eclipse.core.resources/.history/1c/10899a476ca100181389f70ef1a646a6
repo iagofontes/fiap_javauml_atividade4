@@ -1,0 +1,39 @@
+package Exercicio2;
+
+import java.time.LocalDateTime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+public class Aeroporto {
+
+	private String nome;
+	private boolean pistaLiberada;
+	
+	public Aeroporto(String nome) {
+		this.nome = nome;
+		this.pistaLiberada = true;
+	}
+	
+	public boolean aguardarPistaDisponivel() {
+		return false;
+	}
+	
+	public void alterarEstadoPista() {
+		this.pistaLiberada = !this.pistaLiberada;
+		notifyAll();
+	}
+	
+	private void iniciarChecagemPista() {
+		Runnable runTempo = ()->{
+			TimeUnit.SECONDS.sleep(2)
+			wait();
+			
+		};
+		
+		ExecutorService executorService = Executors.newFixedThreadPool(2);
+		executorService.submit(runMensagem);
+	}
+	
+	
+}

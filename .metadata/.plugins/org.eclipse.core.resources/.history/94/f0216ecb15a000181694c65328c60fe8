@@ -1,0 +1,57 @@
+package Exercicio1;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+public class Threads {
+
+	public static ArrayList<String> mensagens = 
+			new ArrayList<>();
+	public static void main(String[] args) {
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm:ss");
+		//LocalDateTime ldt = null;
+		popularMensagens();
+		Thread threadMensagem = new Thread(
+			()->{
+				
+				Integer i = 0;
+				System.out.println(mensagens.get(i));
+				i++;
+				
+			});
+		
+		Thread threadTempo = new Thread(
+				()->{
+					
+					LocalDateTime ldt = LocalDateTime.now();
+					System.out.println(ldt.format(dtf));
+					
+				});
+		//threadMensagem.start();
+		try {
+			while(true) {
+				threadTempo.run();
+				threadMensagem.run();
+				threadTempo.sleep(10000);
+				threadMensagem.sleep(20000);
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static void popularMensagens() {
+		
+		mensagens.add("Primeira mensagem");
+		mensagens.add("Segunda mensagem");
+		mensagens.add("Terceira mensagem");
+		mensagens.add("Quarta mensagem");
+		mensagens.add("Quinta mensagem");
+		mensagens.add("Sexta mensagem");
+		
+	}
+
+}

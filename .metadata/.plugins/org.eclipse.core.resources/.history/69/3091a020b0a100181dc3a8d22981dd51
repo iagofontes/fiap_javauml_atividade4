@@ -1,0 +1,33 @@
+package Exercicio2;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Aeroporto aeroporto = new Aeroporto("Guarulhos");
+		aeroporto.start();
+		ExecutorService executorService = Executors.newFixedThreadPool(3);		
+		
+		Runnable runTan123 = ()->{
+			try {
+				Aviao tan123 = new Aviao("TAN 123", aeroporto);
+				tan123.decolar();
+				tan123.voar();
+				tan123.aterrissar();
+				aeroporto.interrupt();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		};
+
+		executorService.submit(runTan123);
+		
+
+	}
+
+}

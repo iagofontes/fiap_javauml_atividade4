@@ -1,0 +1,46 @@
+package Exercicio2;
+
+import java.util.concurrent.TimeUnit;
+
+public class Aviao {
+
+	private String voo;
+	private Aeroporto aeroporto;
+	
+	public Aviao(String nome, Aeroporto aero) {
+		this.voo = nome;
+		this.aeroporto = aero;
+	}
+	
+	public void decolar() {
+		
+	}
+	public void aterrissar() {
+		
+	}
+	public void voar() {
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public String getVoo() {
+		return voo;
+	}
+
+	public void setVoo(String voo) {
+		this.voo = voo;
+	}
+
+	public Aeroporto getAeroporto() {
+		return aeroporto;
+	}
+
+	public void setAeroporto(Aeroporto aeroporto) {
+		this.aeroporto = aeroporto;
+	}
+	
+}

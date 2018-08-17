@@ -1,0 +1,12 @@
+package Exercicio3;
+
+public class App {
+	
+	public static void main(String[]args) {
+		//System.out.println(Cores.Branco);
+		for(Cores cor : Cores.values()) {
+			System.out.println(cor);
+		}
+	}
+	
+}

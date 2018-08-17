@@ -1,0 +1,22 @@
+package Exercicio2;
+
+public class Aeroporto {
+
+	private String nome;
+	private boolean pistaLiberada;
+	
+	public Aeroporto(String nome) {
+		this.nome = nome;
+		this.pistaLiberada = true;
+	}
+	
+	public boolean aguardarPistaDisponivel() {
+		return false;
+	}
+	
+	public void alterarEstadoPista() {
+		this.pistaLiberada = !this.pistaLiberada;
+	}
+	
+	
+}

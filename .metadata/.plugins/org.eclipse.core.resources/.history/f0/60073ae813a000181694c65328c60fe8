@@ -1,0 +1,43 @@
+package Exercicio1;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Threads {
+
+	public static void main(String[] args) {
+		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm:ss");
+		//LocalDateTime ldt = null;
+		
+		Thread threadMensagem = new Thread(
+			()->{
+				Integer i=0;
+				while(i<100) {
+					System.out.println(i);	
+				}
+				
+			});
+		
+		Thread threadTempo = new Thread(
+				()->{
+					
+					LocalDateTime ldt = LocalDateTime.now();
+					System.out.println(ldt.format(dtf));
+					
+				});
+		//threadMensagem.start();
+		try {
+//			threadTempo.start();
+			while(true) {
+				//System.out.println(threadTempo.getState().toString());
+				threadTempo.sleep(1000);
+				threadTempo.run();
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

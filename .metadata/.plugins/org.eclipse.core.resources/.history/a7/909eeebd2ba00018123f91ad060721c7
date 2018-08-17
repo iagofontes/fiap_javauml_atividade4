@@ -1,0 +1,23 @@
+package Exercicio2;
+
+public class Aviao {
+
+	private String voo;
+	private Aeroporto aeroporto;
+	
+	public Aviao(String nome, Aeroporto aero) {
+		this.voo = nome;
+		this.aeroporto = aero;
+	}
+	
+	public void decolar() {
+		
+	}
+	public void aterrissar() {
+		
+	}
+	public void voar() {
+		
+	}
+	
+}
